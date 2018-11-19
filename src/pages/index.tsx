@@ -1,7 +1,6 @@
+import { withPrefix } from 'gatsby';
 import * as React from 'react';
 import styled from 'styled-components';
-// @ts-ignore
-import headshot from '../../public/images/toby.png';
 
 const Container = styled.div`
   display: flex;
@@ -18,6 +17,15 @@ const Container = styled.div`
   p {
     color: #aaa;
   }
+
+  a {
+    font-weight: bold;
+    color: #ccc;
+
+    &:hover {
+      color: pink;
+    }
+  }
 `;
 
 const Headshot = styled.img`
@@ -31,9 +39,9 @@ export default class IndexPage extends React.Component<{}, {}> {
   public render() {
     return (
       <Container>
-        <Headshot src={headshot}/>
+        <Headshot src={withPrefix('/images/toby.png')} />
         <h1>Hello.</h1>
-        <p>if i were a website.</p>
+        <a href="mailto:work@tobyhamand.com">work@tobyhamand.com</a>
       </Container>
     );
   }
