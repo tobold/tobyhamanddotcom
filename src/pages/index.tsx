@@ -1,6 +1,7 @@
-import { withPrefix } from 'gatsby';
+import {withPrefix} from 'gatsby';
 import * as React from 'react';
 import styled from 'styled-components';
+import ShimmerLink from '../components/ShimmerLink';
 
 const Container = styled.div`
   display: flex;
@@ -9,6 +10,7 @@ const Container = styled.div`
   max-width: 60rem;
   margin: 3rem auto 0;
   font-family: sans-serif;
+  white-space: nowrap;
 
   h1 {
     color: #333;
@@ -23,10 +25,10 @@ const Container = styled.div`
     font-weight: bold;
     font-style: normal;
     color: #ccc;
-    transition: 3s;
+    transition: 6s;
 
     &:hover {
-      color: pink;
+      color: hotpink;
       transition: 0.3s;
     }
   }
@@ -43,9 +45,9 @@ export default class IndexPage extends React.Component<{}, {}> {
   public render() {
     return (
       <Container>
-        <Headshot src={withPrefix('/images/toby.png')} />
+        <Headshot src={withPrefix('/images/toby.png')}/>
         <h1>Hello.</h1>
-        <a href="mailto:work@tobyhamand.com">work@tobyhamand.com</a>
+        <ShimmerLink href="mailto:work@tobyhamand.com">work@tobyhamand.com</ShimmerLink>
       </Container>
     );
   }
