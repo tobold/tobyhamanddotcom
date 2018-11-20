@@ -19,11 +19,15 @@ const Container = styled.div`
   }
 
   a {
+    text-decoration: none;
     font-weight: bold;
+    font-style: normal;
     color: #ccc;
+    transition: 3s;
 
     &:hover {
       color: pink;
+      transition: 0.3s;
     }
   }
 `;
