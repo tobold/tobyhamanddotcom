@@ -10,7 +10,6 @@ const Container = styled.div`
   max-width: 60rem;
   margin: 3rem auto 0;
   font-family: sans-serif;
-  white-space: nowrap;
 
   h1 {
     color: #333;
@@ -18,19 +17,6 @@ const Container = styled.div`
 
   p {
     color: #aaa;
-  }
-
-  a {
-    text-decoration: none;
-    font-weight: bold;
-    font-style: normal;
-    color: #ccc;
-    transition: 6s;
-
-    &:hover {
-      color: hotpink;
-      transition: 0.3s;
-    }
   }
 `;
 

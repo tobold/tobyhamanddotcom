@@ -3,6 +3,16 @@ import styled from 'styled-components';
 
 const InlineA = styled.a`
   display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+  font-style: normal;
+  color: #ccc;
+  transition: 6s;
+
+  &:hover {
+    color: hotpink;
+    transition: 0.3s;
+  }
 `;
 
 interface Props {
@@ -21,3 +31,6 @@ export default class ShimmerLink extends React.Component<Props, {}> {
     );
   }
 }
+
+
+
