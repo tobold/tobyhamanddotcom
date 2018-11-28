@@ -24,10 +24,12 @@ export default class ShimmerLink extends React.Component<Props, {}> {
     const childrenArray = typeof this.props.children === 'string' ? this.props.children.split('') : [];
     return (
       <div>
-        {childrenArray.map(
-          (letter, index) => <InlineA key={index} href={this.props.href}>{letter}</InlineA>,
-        )}
+        {childrenArray.map((letter, index) => (
+          <InlineA key={index} href={this.props.href}>
+            {letter}
+          </InlineA>
+        ))}
       </div>
     );
-  }
+  };
 }

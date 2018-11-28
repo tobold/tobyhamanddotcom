@@ -1,7 +1,6 @@
 {
-  "name": "gatsby-starter-typescript-sass",
-  "description": "Gatsby typescript sass starter",
-  "license": "MIT",
+  "name": "tobyhamanddotcom",
+  "description": "Personal website for Toby Hamand",
   "version": "1.1.1",
   "scripts": {
     "develop": "gatsby develop",

@@ -63,9 +63,7 @@ export default class IndexPage extends React.Component<{}, {}> {
         </HorizontalFlex>
         <HorizontalFlex>
           <EmailIcon />
-          <ShimmerLink href="mailto:work@tobyhamand.com">
-            work@tobyhamand.com
-          </ShimmerLink>
+          <ShimmerLink href="mailto:work@tobyhamand.com">work@tobyhamand.com</ShimmerLink>
         </HorizontalFlex>
       </Container>
     );
