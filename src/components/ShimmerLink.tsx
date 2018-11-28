@@ -10,7 +10,7 @@ const InlineA = styled.a`
   transition: 6s;
 
   &:hover {
-    color: hotpink;
+    color: black;
     transition: 0.3s;
   }
 `;
@@ -31,6 +31,3 @@ export default class ShimmerLink extends React.Component<Props, {}> {
     );
   }
 }
-
-
-

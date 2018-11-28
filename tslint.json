@@ -2,13 +2,19 @@
     "defaultSeverity": "error",
     "extends": [
         "tslint:recommended",
-        "tslint-react"
+        "tslint-react",
+        "tslint-config-prettier",
+        "tslint:latest",
+        "tslint-plugin-prettier"
     ],
     "jsRules": {},
     "rules": {
       "quotemark": [true, "single", "jsx-double"],
       "interface-name": [false],
-      "jsx-no-multiline-js": [false]
+      "jsx-no-multiline-js": [false],
+      "max-classes-per-file": [false, 1],
+      "arrow-parens": [false],
+      "prettier": [true]
     },
     "rulesDirectory": []
 }

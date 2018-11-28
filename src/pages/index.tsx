@@ -1,7 +1,18 @@
-import {withPrefix} from 'gatsby';
+import { withPrefix } from 'gatsby';
 import * as React from 'react';
+import { config, Spring } from 'react-spring';
 import styled from 'styled-components';
 import ShimmerLink from '../components/ShimmerLink';
+import {
+  EmailIcon,
+  FacebookIcon,
+  GithubIcon,
+  InstagramIcon,
+  LastfmIcon,
+  LinkedinIcon,
+  StackoverflowIcon,
+  TwitterIcon,
+} from '../components/SocialIcon';
 
 const Container = styled.div`
   display: flex;
@@ -26,14 +37,36 @@ const Headshot = styled.img`
   border-radius: 150px;
 `;
 
-export default class IndexPage extends React.Component<{}, {}> {
+const HorizontalFlex = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+`;
 
+export default class IndexPage extends React.Component<{}, {}> {
   public render() {
     return (
       <Container>
-        <Headshot src={withPrefix('/images/toby.png')}/>
-        <h1>Hello.</h1>
-        <ShimmerLink href="mailto:work@tobyhamand.com">work@tobyhamand.com</ShimmerLink>
+        <Headshot src={withPrefix('/images/toby.png')} />
+        <Spring config={config.slow} from={{ opacity: 0 }} to={{ opacity: 1 }}>
+          {props => <h1 style={props}>Hello.</h1>}
+        </Spring>
+        <HorizontalFlex>
+          <GithubIcon />
+          <InstagramIcon />
+          <LinkedinIcon />
+          <StackoverflowIcon />
+          <LastfmIcon />
+          <FacebookIcon />
+          <TwitterIcon />
+        </HorizontalFlex>
+        <HorizontalFlex>
+          <EmailIcon />
+          <ShimmerLink href="mailto:work@tobyhamand.com">
+            work@tobyhamand.com
+          </ShimmerLink>
+        </HorizontalFlex>
       </Container>
     );
   }
