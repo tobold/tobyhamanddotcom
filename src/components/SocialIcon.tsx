@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-const SocialIcon = styled.svg`
+const SocialIcon = styled.svg<{ color: string; hoverColor: string; size: number }>`
   display: block;
   font-size: 0;
   list-style: none;
@@ -9,22 +9,24 @@ const SocialIcon = styled.svg`
   text-align: center;
   height: ${props => `${props.size || 128}px`};
   width: ${props => `${props.size || 128}px`};
-  color: ${props => props.color || 'black'};
-  fill: ${props => props.color || 'black'};
+  color: ${props => (props.darkMode ? 'white' : props.color || 'black')};
+  fill: ${props => (props.darkMode ? 'white' : props.color || 'black')};
   transition: 6s;
 
   &:hover {
-    color: black;
-    fill: black;
+    color: ${props => (props.darkMode ? '#191919' : props.hoverColor || '#e5e5e5')};
+    fill: ${props => (props.darkMode ? '#191919' : props.hoverColor || '#e5e5e5')};
     transition: 0.3s;
   }
 `;
 
-export class GithubIcon extends React.Component {
+class Icon extends React.Component<{ darkMode: boolean }, {}> {}
+
+export class GithubIcon extends Icon {
   public render() {
     return (
       <a href="https://github.com/tobold" title="Github">
-        <SocialIcon viewBox="0 0 512 512">
+        <SocialIcon viewBox="0 0 512 512" darkMode={this.props.darkMode}>
           <path
             d="M256 70.7c-102.6 0-185.9 83.2-185.9 185.9 0 82.1 53.3 151.8 127.1 176.4 9.3 1.7 12.3-4 12.3-8.9
           V389.4c-51.7 11.3-62.5-21.9-62.5-21.9 -8.4-21.5-20.6-27.2-20.6-27.2 -16.9-11.5 1.3-11.3 1.3-11.3 18.7 1.3
@@ -40,11 +42,11 @@ export class GithubIcon extends React.Component {
   }
 }
 
-export class InstagramIcon extends React.Component {
+export class InstagramIcon extends Icon {
   public render() {
     return (
       <a href="http://instgram.com/tobyhamand" title="Instagram">
-        <SocialIcon viewBox="0 0 512 512">
+        <SocialIcon viewBox="0 0 512 512" darkMode={this.props.darkMode}>
           <path
             d="M256 109.3c47.8 0 53.4 0.2 72.3 1 17.4 0.8 26.9 3.7 33.2 6.2 8.4 3.2 14.3 7.1 20.6 13.4 6.3 6.3 10.1
             12.2 13.4 20.6 2.5 6.3 5.4 15.8 6.2 33.2 0.9 18.9 1 24.5 1 72.3s-0.2 53.4-1 72.3c-0.8 17.4-3.7 26.9-6.2 33.2
@@ -72,11 +74,11 @@ export class InstagramIcon extends React.Component {
   }
 }
 
-export class LinkedinIcon extends React.Component {
+export class LinkedinIcon extends Icon {
   public render() {
     return (
       <a href="https://www.linkedin.com/in/toby-hamand/" title="Linkedin">
-        <SocialIcon viewBox="0 0 512 512">
+        <SocialIcon viewBox="0 0 512 512" darkMode={this.props.darkMode}>
           <path
             d="M186.4 142.4c0 19-15.3 34.5-34.2 34.5 -18.9 0-34.2-15.4-34.2-34.5 0-19 15.3-34.5 34.2-34.5C171.1
             107.9 186.4 123.4 186.4 142.4zM181.4 201.3h-57.8V388.1h57.8V201.3zM273.8 201.3h-55.4V388.1h55.4c0 0 0-69.3
@@ -89,11 +91,11 @@ export class LinkedinIcon extends React.Component {
   }
 }
 
-export class StackoverflowIcon extends React.Component {
+export class StackoverflowIcon extends Icon {
   public render() {
     return (
       <a href="https://stackoverflow.com/users/8558260/toby-hamand" title="Stackoverflow">
-        <SocialIcon viewBox="0 0 512 512">
+        <SocialIcon viewBox="0 0 512 512" darkMode={this.props.darkMode}>
           <path
             d="M294.8 361.2l-122 0.1 0-26 122-0.1L294.8 361.2zM377.2 213.7L356.4 93.5l-25.7 4.5 20.9 120.2L377.2
             213.7zM297.8 301.8l-121.4-11.2 -2.4 25.9 121.4 11.2L297.8 301.8zM305.8 267.8l-117.8-31.7 -6.8 25.2 117.8
@@ -106,11 +108,11 @@ export class StackoverflowIcon extends React.Component {
   }
 }
 
-export class LastfmIcon extends React.Component {
+export class LastfmIcon extends Icon {
   public render() {
     return (
       <a href="https://www.last.fm/user/Tobold" title="Lastfm">
-        <SocialIcon viewBox="0 0 512 512">
+        <SocialIcon viewBox="0 0 512 512" darkMode={this.props.darkMode}>
           <path
             d="M230.104 336.568l-13.607-36.988c0 0-22.11 24.66-55.268 24.66 -29.341 0-50.172-25.512-50.172-66.328
           0-52.293 26.359-71.001 52.297-71.001 37.412 0 49.316 24.234 59.522 55.273l13.607 42.518c13.603 41.236 39.113
@@ -129,11 +131,11 @@ export class LastfmIcon extends React.Component {
   }
 }
 
-export class FacebookIcon extends React.Component {
+export class FacebookIcon extends Icon {
   public render() {
     return (
       <a href="https://facebook.com/tobold" title="Facebook">
-        <SocialIcon viewBox="0 0 512 512">
+        <SocialIcon viewBox="0 0 512 512" darkMode={this.props.darkMode}>
           <path
             d="M211.9 197.4h-36.7v59.9h36.7V433.1h70.5V256.5h49.2l5.2-59.1h-54.4c0 0 0-22.1 0-33.7 0-13.9 2.8-19.5
           16.3-19.5 10.9 0 38.2 0 38.2 0V82.9c0 0-40.2 0-48.8 0 -52.5 0-76.1 23.1-76.1 67.3C211.9 188.8 211.9 197.4
@@ -145,11 +147,11 @@ export class FacebookIcon extends React.Component {
   }
 }
 
-export class TwitterIcon extends React.Component {
+export class TwitterIcon extends Icon {
   public render() {
     return (
       <a href="https://twitter.com/tobyhamand" title="Twitter">
-        <SocialIcon viewBox="0 0 512 512">
+        <SocialIcon viewBox="0 0 512 512" darkMode={this.props.darkMode}>
           <path
             d="M419.6 168.6c-11.7 5.2-24.2 8.7-37.4 10.2 13.4-8.1 23.8-20.8 28.6-36 -12.6 7.5-26.5 12.9-41.3 15.8
           -11.9-12.6-28.8-20.6-47.5-20.6 -42 0-72.9 39.2-63.4 79.9 -54.1-2.7-102.1-28.6-134.2-68 -17 29.2-8.8 67.5 20.1
@@ -163,11 +165,11 @@ export class TwitterIcon extends React.Component {
   }
 }
 
-export class EmailIcon extends React.Component {
+export class EmailIcon extends Icon {
   public render() {
     return (
       <a href="mailto:work@tobyhamand.com" title="Email">
-        <SocialIcon viewBox="0 0 512 512" size={32} color="#aaa">
+        <SocialIcon viewBox="0 0 512 512" size={32} color="#aaa" hoverColor="black" darkMode={this.props.darkMode}>
           <path
             d="M101.3 141.6v228.9h0.3 308.4 0.8V141.6H101.3zM375.7 167.8l-119.7 91.5 -119.6-91.5H375.7zM127.6
           194.1l64.1 49.1 -64.1 64.1V194.1zM127.8 344.2l84.9-84.9 43.2 33.1 43-32.9 84.7 84.7L127.8 344.2 127.8
