@@ -1,3 +1,5 @@
+export type themeType = { [key: string]: string }
+
 const colors = {
   black: '#000000',
   black10: '#191919',
