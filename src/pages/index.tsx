@@ -1,18 +1,30 @@
 import { withPrefix } from 'gatsby';
-import * as React from 'react';
+import React from 'react';
 import { config, Spring } from 'react-spring';
 import styled, { createGlobalStyle } from 'styled-components';
 import ShimmerLink from '../components/ShimmerLink';
 import {
-  EmailIcon,
-  FacebookIcon,
-  GithubIcon,
-  InstagramIcon,
-  LastfmIcon,
-  LinkedinIcon,
-  StackoverflowIcon,
-  TwitterIcon,
-} from '../components/SocialIcon';
+  EmailPath,
+  FacebookPath,
+  GithubPath,
+  InstagramPath,
+  LastfmPath,
+  LinkedinPath,
+  StackoverflowPath,
+  TwitterPath,
+} from '../components/SocialIcon/IconPaths';
+import { SocialIcon } from '../components/SocialIcon/SocialIcon';
+import {
+  EmailUrl,
+  FacebookUrl,
+  GithubUrl,
+  InstagramUrl,
+  LastfmUrl,
+  LinkedinUrl,
+  StackoverflowUrl,
+  TwitterUrl,
+} from '../components/SocialIcon/SocialLinks';
+import { darkTheme, lightTheme } from '../theme';
 
 const GlobalStyle = createGlobalStyle<{ darkMode: boolean }>`
   body {
@@ -74,6 +86,7 @@ export default class IndexPage extends React.Component<{}, { darkMode: boolean }
   };
 
   public render() {
+    const theme = this.state.darkMode ? darkTheme : lightTheme;
     return (
       <Container>
         <DarkModeButton onClick={() => this.setState({ darkMode: !this.state.darkMode })}>
@@ -86,16 +99,16 @@ export default class IndexPage extends React.Component<{}, { darkMode: boolean }
           {props => <h1 style={props}>Hello.</h1>}
         </Spring>
         <HorizontalFlex>
-          <GithubIcon darkMode={this.state.darkMode} />
-          <InstagramIcon darkMode={this.state.darkMode} />
-          <LinkedinIcon darkMode={this.state.darkMode} />
-          <StackoverflowIcon darkMode={this.state.darkMode} />
-          <LastfmIcon darkMode={this.state.darkMode} />
-          <FacebookIcon darkMode={this.state.darkMode} />
-          <TwitterIcon darkMode={this.state.darkMode} />
+          <SocialIcon theme={theme} path={GithubPath} href={GithubUrl} />
+          <SocialIcon theme={theme} path={InstagramPath} href={InstagramUrl} />
+          <SocialIcon theme={theme} path={LinkedinPath} href={LinkedinUrl} />
+          <SocialIcon theme={theme} path={StackoverflowPath} href={StackoverflowUrl} />
+          <SocialIcon theme={theme} path={LastfmPath} href={LastfmUrl} />
+          <SocialIcon theme={theme} path={FacebookPath} href={FacebookUrl} />
+          <SocialIcon theme={theme} path={TwitterPath} href={TwitterUrl} />
         </HorizontalFlex>
         <HorizontalFlex>
-          <EmailIcon darkMode={this.state.darkMode} />
+          <SocialIcon theme={theme} path={EmailPath} href={EmailUrl} size={24} />
           <ShimmerLink href="mailto:work@tobyhamand.com">work@tobyhamand.com</ShimmerLink>
         </HorizontalFlex>
       </Container>
