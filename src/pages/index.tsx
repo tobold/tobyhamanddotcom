@@ -60,7 +60,6 @@ const HorizontalFlex = styled.div`
 `;
 
 const DarkModeButton = styled.button`
-  opacity: 0.5;
   cursor: pointer;
   position: fixed;
   display: flex;
@@ -74,6 +73,7 @@ const DarkModeButton = styled.button`
   padding: 0;
   padding-top: 5px;
   font-size: 30px;
+  background-color: transparent;
 
   &:focus {
     outline: none;
