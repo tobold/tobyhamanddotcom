@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { themeType } from '../../theme';
 
-export const SocialIconSVG = styled.svg<{ size: number; theme: any }>`
+export const SocialIconSVG = styled.svg<{ size: number; theme: themeType }>`
   display: block;
   font-size: 0;
   list-style: none;
@@ -20,7 +21,7 @@ export const SocialIconSVG = styled.svg<{ size: number; theme: any }>`
   }
 `;
 
-type Props = { theme: any; path: any; href?: string; size?: number };
+type Props = { theme: themeType; path: any; href?: string; size?: number };
 
 export class SocialIcon extends React.Component<Props> {
   public render() {
