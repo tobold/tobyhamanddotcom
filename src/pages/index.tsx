@@ -28,8 +28,8 @@ import { darkTheme, lightTheme } from '../theme';
 
 const GlobalStyle = createGlobalStyle<{ darkMode: boolean }>`
   body {
-    background-color: ${props => (!props.darkMode ? 'white' : 'black')};
-    color: ${props => (props.darkMode ? 'white' : 'black')};
+    background-color: ${props => (!props.darkMode ? darkTheme.primary : lightTheme.primary)};
+    color: ${props => (props.darkMode ? darkTheme.primary : lightTheme.primary)};
     padding: 0;
     transition: 3s;
   }
@@ -80,6 +80,17 @@ const DarkModeButton = styled.button`
   }
 `;
 
+const DownloadButton = styled.a`
+  margin-top: 20px;
+  text-decoration: none;
+  background-color: ${props => props.theme.secondary};
+  color: ${props => props.theme.primary};
+  padding: 5px;
+  border: 1px solid ${props => props.theme.primary};
+  border-radius: 4px;
+  transition: 3s;
+`;
+
 export default class IndexPage extends React.Component<{}, { darkMode: boolean }> {
   state = {
     darkMode: false,
@@ -111,6 +122,9 @@ export default class IndexPage extends React.Component<{}, { darkMode: boolean }
           <SocialIcon theme={theme} path={EmailPath} href={EmailUrl} size={24} />
           <ShimmerLink href="mailto:work@tobyhamand.com">work@tobyhamand.com</ShimmerLink>
         </HorizontalFlex>
+        <DownloadButton href={withPrefix('/documents/cv.pdf')} theme={theme} download>
+          Download CV
+        </DownloadButton>
       </Container>
     );
   }
