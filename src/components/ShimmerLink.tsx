@@ -11,7 +11,7 @@ const InlineA = styled.a`
 
   &:hover {
     color: black;
-    transition: 0.3s;
+    transition: 0.05s;
   }
 `;
 
