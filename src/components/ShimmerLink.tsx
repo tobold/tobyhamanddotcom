@@ -17,6 +17,7 @@ const InlineA = styled.a`
 
 interface Props {
   href: string;
+  children?: React.ReactNode;
 }
 
 export default class ShimmerLink extends React.Component<Props, {}> {

@@ -27,7 +27,7 @@ export class SocialIcon extends React.Component<Props> {
   public render() {
     return (
       <a href={this.props.href}>
-        <SocialIconSVG viewBox="0 0 512 512" theme={this.props.theme} size={this.props.size}>
+        <SocialIconSVG viewBox="0 0 512 512" theme={this.props.theme} size={this.props.size || 0}>
           <this.props.path />
         </SocialIconSVG>
       </a>
